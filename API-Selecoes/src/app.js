@@ -4,14 +4,14 @@ const app = express()
 app.use(express.json())
 
 const selecoes = [
-    {id:1, selecao: 'Angola', grupo:'A'},
-    {id:2, selecao: 'Gabão', grupo:'A'},
-    {id:3, selecao: 'França', grupo:'A'},
-    {id:4, selecao: 'Argentina', grupo:'A'}
+    {id:'1', selecao: 'Angola', grupo:'A'},
+    {id:'2', selecao: 'Gabão', grupo:'A'},
+    {id:'3', selecao: 'França', grupo:'A'},
+    {id:'4', selecao: 'Argentina', grupo:'A'}
 ] 
 
 function getSelecaoById(id){
-    return selecoes.filter(selecao => selecao.id = id)
+    return selecoes.filter(selecao => selecao.id == id)
 }
 
 //Criando a rota padrão
@@ -24,7 +24,7 @@ app.get('/showSelecoes', (req, res) => {
 })
 
 app.get('/showSelecao/:id', (req, res) =>{
-    res.status(200).json(getSelecaoById(req.params.id))
+    res.json(getSelecaoById(req.params.id))
 })
 
 app.post('/createSelecao', (req, res) =>{
