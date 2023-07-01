@@ -14,6 +14,10 @@ function getSelecaoById(id){
     return selecoes.filter(selecao => selecao.id == id)
 }
 
+function getSelecaoIndex(id){
+    return selecoes.findIndex(selecao => selecao.id == id)
+}
+
 //Criando a rota padrão
 app.get('/', (req, res) => {
     res.send('Hello, World!') 
@@ -32,6 +36,14 @@ app.post('/createSelecao', (req, res) =>{
     res.status(201).send('Seleçao cadastrada com sucesso!')
 })
 
+app.put('/updateSelecao/:id', (req, res) =>{
+    const index = getSelecaoIndex(req.params.id)
+
+    selecoes[index].selecao = req.body.selecao
+    selecoes[index].grupo   = req.body.grupo
+
+    res.status(200).send('Actualização Efectuada!')
+})
 
 
 export default app
