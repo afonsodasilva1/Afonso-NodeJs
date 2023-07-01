@@ -45,5 +45,12 @@ app.put('/updateSelecao/:id', (req, res) =>{
     res.status(200).send('Actualização Efectuada!')
 })
 
+app.delete('/deleteSelecao/:id', (req, res) => {
+    const index = getSelecaoIndex(req.params.id)
+
+    selecoes.splice(index, 1)
+    res.send('Seleção apagada com Sucesso!')
+})
+
 
 export default app
