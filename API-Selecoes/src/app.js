@@ -68,5 +68,4 @@ app.delete('/deleteSelecao/:id', (req, res) => {
     })
 })
 
-
 export default app
