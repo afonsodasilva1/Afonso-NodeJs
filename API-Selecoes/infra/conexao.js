@@ -1,4 +1,3 @@
-//Conexão com Mysql
 import mysql from 'mysql'
 
 const conection = mysql.createConnection({
@@ -8,5 +7,7 @@ const conection = mysql.createConnection({
     password:'',
     database:'caf'
 })
+
+conection.connect()
 
 export default conection
