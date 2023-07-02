@@ -16,7 +16,17 @@ app.get('/showSelecoes', (req, res) => {
 })
 
 app.get('/showSelecao/:id', (req, res) =>{
-        
+    const id = req.params.id
+    const sqlCommand = 'SELECT * FROM selecao WHERE id = ?;'
+    
+    conection.query(sqlCommand, id, (erro, result) =>{
+        const row = result[0]
+        if(erro){
+            res.status(404).json({'erro': erro})
+        }else{
+            res.status(200).json(row)
+        }
+    })
 })
 
 app.post('/createSelecao', (req, res) =>{
