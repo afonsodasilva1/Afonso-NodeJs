@@ -3,11 +3,6 @@ import express from 'express'
 const app = express()
 app.use(express.json())
 
-//Criando a rota padrão
-app.get('/', (req, res) => {
-    res.send('Hello, World!') 
-})
-
 app.get('/showSelecoes', (req, res) => {
     res.status(200).send(selecoes)
 })
