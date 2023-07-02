@@ -30,8 +30,15 @@ app.get('/showSelecao/:id', (req, res) =>{
 })
 
 app.post('/createSelecao', (req, res) =>{
-    selecoes.push(req.body)
-    res.status(201).send('Seleçao cadastrada com sucesso!')
+    const selecao = req.body
+    const sqlCommand = 'INSERT INTO selecao SET ?'
+    conection.query(sqlCommand, selecao, (erro, result) =>{
+        if(erro){
+            res.status(404).json({'erro':erro})
+        }else{
+            res.status(201).json(result)
+        }
+    })
 })
 
 app.put('/updateSelecao/:id', (req, res) =>{
