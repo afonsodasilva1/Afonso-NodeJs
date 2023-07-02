@@ -16,7 +16,7 @@ app.get('/showSelecoes', (req, res) => {
 })
 
 app.get('/showSelecao/:id', (req, res) =>{
-    res.json(getSelecaoById(req.params.id))
+        
 })
 
 app.post('/createSelecao', (req, res) =>{
