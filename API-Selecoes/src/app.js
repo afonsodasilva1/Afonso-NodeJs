@@ -61,9 +61,9 @@ app.delete('/deleteSelecao/:id', (req, res) => {
 
     conection.query(sqlCommand, id, (erro, result) =>{
         if(erro){
-
+            res.status(400).json({'erro': erro})
         }else{
-            
+            res.status(200).json(result)
         }
     })
 })
