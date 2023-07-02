@@ -1,10 +1,18 @@
 import express from 'express'
+import conection from '../infra/conexao.js';
 
 const app = express()
 app.use(express.json())
 
 app.get('/showSelecoes', (req, res) => {
-    res.status(200).send(selecoes)
+    const sqlCommand = 'SELECT *  FROM selecao;'    
+    conection.query(sqlCommand, (erro, result) =>{
+        if(erro){
+            res.status(404).json({'erro': erro})
+        }else{
+            res.status(200).json(result)
+        }
+    })
 })
 
 app.get('/showSelecao/:id', (req, res) =>{
