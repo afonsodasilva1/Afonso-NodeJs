@@ -42,12 +42,17 @@ app.post('/createSelecao', (req, res) =>{
 })
 
 app.put('/updateSelecao/:id', (req, res) =>{
-    const index = getSelecaoIndex(req.params.id)
+    const id = reqq.params.id
+    const selecao = req.body
+    const sqlCommand = 'UPDATE selecao SET ? WHERE id = ?;'
 
-    selecoes[index].selecao = req.body.selecao
-    selecoes[index].grupo   = req.body.grupo
-
-    res.status(200).send('Actualização Efectuada!')
+    conection.query(sqlCommand, [selecao, id], (erro, result) =>{
+        if(erro){
+            res.status(400).json({'erro':erro})
+        }else{
+            res.status(200).json(result)
+        }
+    })
 })
 
 app.delete('/deleteSelecao/:id', (req, res) => {
