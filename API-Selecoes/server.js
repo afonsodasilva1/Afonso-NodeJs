@@ -7,11 +7,10 @@ conection.connect((error) =>{
     if(error){
         console.log(error)
     }else{
-        
-    }
+        console.log('Conexão efectuada com sucesso!')
+            }
 })
 
-console.log('Conexão efectuada com sucesso!')
-        app.listen(PORT, () =>{
-            console.log(`Servidor rodando no enderenço:http://localhost:${PORT}`)
-        })
+app.listen(PORT, () =>{
+    console.log(`Servidor rodando no enderenço:http://localhost:${PORT}`)
+})
