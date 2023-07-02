@@ -56,10 +56,16 @@ app.put('/updateSelecao/:id', (req, res) =>{
 })
 
 app.delete('/deleteSelecao/:id', (req, res) => {
-    const index = getSelecaoIndex(req.params.id)
+    const id = req.params.id
+    const sqlCommand = 'DELETE FROM selecao WHERE id = ?'
 
-    selecoes.splice(index, 1)
-    res.send('Seleção apagada com Sucesso!')
+    conection.query(sqlCommand, id, (erro, result) =>{
+        if(erro){
+
+        }else{
+            
+        }
+    })
 })
 
 
