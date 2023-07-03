@@ -4,6 +4,8 @@ import conection from '../infra/conexao.js';
 const app = express()
 app.use(express.json())
 
+//Rotas
+
 app.get('/showSelecoes', (req, res) => {
     const sqlCommand = 'SELECT *  FROM selecao;'    
     conection.query(sqlCommand, (erro, result) =>{
@@ -42,7 +44,7 @@ app.post('/createSelecao', (req, res) =>{
 })
 
 app.put('/updateSelecao/:id', (req, res) =>{
-    const id = reqq.params.id
+    const id = req.params.id
     const selecao = req.body
     const sqlCommand = 'UPDATE selecao SET ? WHERE id = ?;'
 
