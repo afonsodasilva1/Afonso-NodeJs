@@ -5,7 +5,6 @@ const app = express()
 app.use(express.json())
 
 //Rotas
-
 app.get('/showSelecoes', (req, res) => {
     const sqlCommand = 'SELECT *  FROM selecao;'    
     conection.query(sqlCommand, (erro, result) =>{
