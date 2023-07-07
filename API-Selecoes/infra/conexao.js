@@ -1,6 +1,7 @@
 import mysql from 'mysql'
+import dotenv from 'dotenv';
 
-const dot = require('dotenv').config()
+dotenv.config()
 
 const conection = mysql.createConnection({
     host: process.env.DB_HOST,
