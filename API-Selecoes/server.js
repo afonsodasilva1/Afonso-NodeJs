@@ -1,5 +1,7 @@
 import app from "./src/app.js"
-const dot = require('dotenv').config()
+import dotenv from 'dotenv'
+
+
 
 const PORT = 3003
 
