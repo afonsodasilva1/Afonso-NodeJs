@@ -18,7 +18,7 @@ app.get('/showSelecoes', (req, res) => {
 
 app.get('/showSelecao/:id', (req, res) =>{
     const id = req.params.id
-    const sqlCommand = 'SELECT * FROM selecao WHERE id = ?;'
+    const sqlCommand = 'SELECT * FROM selecao WHERE id = ?'
     
     conection.query(sqlCommand, id, (erro, result) =>{
         const row = result[0]
@@ -45,7 +45,7 @@ app.post('/createSelecao', (req, res) =>{
 app.put('/updateSelecao/:id', (req, res) =>{
     const id = req.params.id
     const selecao = req.body
-    const sqlCommand = 'UPDATE selecao SET ? WHERE id = ?;'
+    const sqlCommand = 'UPDATE selecao SET ? WHERE id = ?'
 
     conection.query(sqlCommand, [selecao, id], (erro, result) =>{
         if(erro){
