@@ -6,7 +6,7 @@ app.use(express.json())
 
 //Rotas
 app.get('/showSelecoes', (req, res) => {
-    const sqlCommand = 'SELECT *  FROM selecao;'    
+    const sqlCommand = 'SELECT *  FROM selecao'    
     conection.query(sqlCommand, (erro, result) =>{
         if(erro){
             res.status(404).json({'erro': erro})
