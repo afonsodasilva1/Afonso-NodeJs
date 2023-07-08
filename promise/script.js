@@ -7,3 +7,7 @@ const myPromise = new Promise((resolve, reject) =>{
         console.log('Usuário Afonso não encontrado!')
     }
 })
+
+myPromise.then((data) =>{
+    console.log(data)
+})
