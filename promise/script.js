@@ -1,9 +1,9 @@
 const myPromise = new Promise((resolve, reject) =>{
     const name = "Afonso"
 
-    if(nome === 'Afonso'){
-        console.log(resolve)
+    if(name === 'Afonso'){
+        console.log('usuário Afonso encontrado!')
     }else{
-        console.log(reject)
+        console.log('Usuário Afonso não encontrado!')
     }
 })
