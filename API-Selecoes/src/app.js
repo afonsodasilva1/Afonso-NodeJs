@@ -70,3 +70,9 @@ app.delete('/deleteSelecao/:id', (req, res) => {
 })
 
 export default app
+
+
+
+
+//Afonso da Silva  
+//Afonso da 
