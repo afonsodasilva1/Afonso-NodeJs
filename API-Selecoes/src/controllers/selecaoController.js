@@ -32,6 +32,10 @@ class SelecaoController{
                 res.status(201).json({'result': result})
         })
     }
+
+    update(req, res){
+        
+    }
 }
 
 export default new SelecaoController()
