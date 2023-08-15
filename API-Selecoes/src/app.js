@@ -1,5 +1,5 @@
 import express from 'express'
-import conection from '../db/conexao.js';
+import conection from './db/conexao.js';
 
 const app = express()
 app.use(express.json())
