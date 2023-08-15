@@ -1,34 +1,14 @@
 import express from 'express'
-import conection from './models/conexao.js';
+import conection from './models/conexao.js'
+import SelecaoController from './controllers/SelecaoController.js'
 
 const app = express()
 app.use(express.json())
 
 //Rotas
-app.get('/showSelecoes', (req, res) => {
-    const sqlCommand = 'SELECT *  FROM selecao'    
-    conection.query(sqlCommand, (erro, result) =>{
-        if(erro){
-            res.status(404).json({'erro': erro})
-        }else{
-            res.status(200).json(result)
-        }
-    })
-})
+app.get('/showSelecoes', SelecaoController.index) 
 
-app.get('/showSelecao/:id', (req, res) =>{
-    const id = req.params.id
-    const sqlCommand = 'SELECT * FROM selecao WHERE id = ?'
-    
-    conection.query(sqlCommand, id, (erro, result) =>{
-        const row = result[0]
-        if(erro){
-            res.status(404).json({'erro': erro})
-        }else{
-            res.status(200).json(row)
-        }
-    })
-})
+app.get('/showSelecao/:id', SelecaoController.show)
 
 app.post('/createSelecao', (req, res) =>{
     const selecao = req.body
