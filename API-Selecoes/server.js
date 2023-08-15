@@ -9,3 +9,4 @@ const PORT = process.env.DB_PORT
 app.listen(PORT, () =>{
     console.log(`Servidor rodando no enderenço:http://localhost:${PORT}/showSelecoes`)
 })
+
