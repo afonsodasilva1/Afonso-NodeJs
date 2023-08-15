@@ -10,43 +10,10 @@ app.get('/showSelecoes', SelecaoController.index)
 
 app.get('/showSelecao/:id', SelecaoController.show)
 
-app.post('/createSelecao', (req, res) =>{
-    const selecao = req.body
-    const sqlCommand = 'INSERT INTO selecao SET ?'
-    conection.query(sqlCommand, selecao, (erro, result) =>{
-        if(erro){
-            res.status(404).json({'erro':erro})
-        }else{
-            res.status(201).json(result)
-        }
-    })
-})
+app.post('/createSelecao', SelecaoController.store)
 
-app.put('/updateSelecao/:id', (req, res) =>{
-    const id = req.params.id
-    const selecao = req.body
-    const sqlCommand = 'UPDATE selecao SET ? WHERE id = ?'
+app.put('/updateSelecao/:id', SelecaoController.update)
 
-    conection.query(sqlCommand, [selecao, id], (erro, result) =>{
-        if(erro){
-            res.status(400).json({'erro':erro})
-        }else{
-            res.status(200).json(result)
-        }
-    })
-})
-
-app.delete('/deleteSelecao/:id', (req, res) => {
-    const id = req.params.id
-    const sqlCommand = 'DELETE FROM selecao WHERE id = ?'
-
-    conection.query(sqlCommand, id, (erro, result) =>{
-        if(erro){
-            res.status(400).json({'erro': erro})
-        }else{
-            res.status(200).json(result)
-        }
-    })
-})
+app.delete('/deleteSelecao/:id', SelecaoController.delete)
 
 export default app
