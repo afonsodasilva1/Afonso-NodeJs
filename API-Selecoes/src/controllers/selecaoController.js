@@ -1,20 +1,15 @@
 import conection from '../models/conexao.js'
+import SelecaoRepository from '../Repositories/SelecaoRepository.js'
 
 class SelecaoController{
-    index(req, res){
-        const sqlCommand = 'SELECT *  FROM selecao'    
-        conection.query(sqlCommand, (erro, result) =>{
-            if(erro){
-                res.status(404).json({'erro': erro})
-            }else{
-                res.status(200).json({'resultado': result})
-            }
-        })
+    async index (req, res){
+       const row = await SelecaoRepository.findAll
+       res.json(row)
     }
     
     show(req, res){
         const sqlComand = 'SELECT * FROM selecao WHERE id = ?'
-        const id = req.params.id
+        const id =  req.params.id
         conection.query(sqlComand, id, (erro, result) =>{
             if(erro)
                 res.status(400).json({'erro': erro})
