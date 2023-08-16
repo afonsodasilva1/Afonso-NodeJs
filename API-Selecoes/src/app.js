@@ -1,5 +1,4 @@
 import express from 'express'
-import conection from './models/conexao.js'
 import SelecaoController from './controllers/SelecaoController.js'
 
 const app = express()
