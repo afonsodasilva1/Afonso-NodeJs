@@ -1,9 +1,9 @@
 class SelecaoRepository{
         
         create(){
-
+            //Bem famosa
         }
-        
+
         findAll(){
 
         }
