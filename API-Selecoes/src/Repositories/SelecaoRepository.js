@@ -11,7 +11,8 @@ class SelecaoRepository{
             return new Promise((resolve, reject) =>{
                 conection.query(sqlCommand, (erro, result)=>{
                     if(erro) return reject('Não foi possível')
-                    return resolve(result)
+                    const row = JSON.parse(JSON.stringify(result))
+                    return resolve(row)
                 })
             })
         }

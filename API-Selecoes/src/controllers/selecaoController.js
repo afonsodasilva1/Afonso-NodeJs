@@ -3,7 +3,7 @@ import SelecaoRepository from '../Repositories/SelecaoRepository.js'
 
 class SelecaoController{
     async index (req, res){
-       const row = await SelecaoRepository.findAll
+       const row = await SelecaoRepository.findAll()
        res.json(row)
     }
     
