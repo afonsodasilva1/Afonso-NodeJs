@@ -3,7 +3,6 @@ import SelecaoController from './controllers/SelecaoController.js'
 
 const app = express()
 app.use(express.json())
-
 //Rotas
 app.get('/showSelecoes', SelecaoController.index) 
 

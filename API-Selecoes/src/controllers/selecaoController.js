@@ -7,15 +7,10 @@ class SelecaoController{
        res.json(row)
     }
     
-    show(req, res){
-        const sqlComand = 'SELECT * FROM selecao WHERE id = ?'
-        const id =  req.params.id
-        conection.query(sqlComand, id, (erro, result) =>{
-            if(erro)
-                res.status(400).json({'erro': erro})
-            else
-                res.status(200).json({'resultado':result})
-        })
+    async show(req, res){
+        const id = req.params.id
+        const row = await SelecaoRepository.findById(id)
+        res.json(row)
     } 
     
     store(req, res){
