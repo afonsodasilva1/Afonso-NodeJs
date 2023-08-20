@@ -24,17 +24,9 @@ class SelecaoController{
         })
     }
 
-    update(req, res){
-        const selecao   = req.body
-        const id        = req.params.id
-        const sqlComand = 'UPDATE selecoes SET ? WHERE id = ?'
-
-        conection.query(sqlComand, [selecao, id], (erro, result) =>{
-            if(erro)
-                res.status(400).json({'erro': erro})
-            else
-                res.status(200).json({'resultado': result})
-        })
+    async update(req, res){
+       const row = await SelecaoRepository.update(req.body, req.params.id)
+       res.json(row)
     }
 
     delete(req, res){

@@ -28,7 +28,7 @@ class SelecaoRepository{
             })
         }
 
-        update(id, bodyReq){
+        update(bodyReq, id){
             const sqlComand = 'UPDATE selecao SET ? WHERE id = ?;'
             return new Promise((resolve, reject) =>{
                 conection.query(sqlComand, [bodyReq, id], (erro, result) =>{
