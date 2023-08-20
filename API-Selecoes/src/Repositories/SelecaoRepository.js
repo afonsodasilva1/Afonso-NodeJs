@@ -49,7 +49,7 @@ class SelecaoRepository{
         }
 
         delete(id){
-            const sqlComand = 'DELETE FORM selecao WHERE id = ?;'
+            const sqlComand = 'DELETE FROM selecao WHERE id = ?;'
             return new Promise((resolve, reject) =>{
                 conection.query(sqlComand, id, (erro, result) =>{
                     if(erro)
