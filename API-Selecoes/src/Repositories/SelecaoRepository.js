@@ -40,10 +40,17 @@ class SelecaoRepository{
             })
         }
 
-        delete(){
-            
+        delete(id){
+            const sqlComand = 'DELETE FORM selecao WHERE id = ?;'
+            return new Promise((resolve, reject) =>{
+                conection.query(sqlComand, id, (erro, result) =>{
+                    if(erro)
+                        return reject('Não foi possível apagar')
+                    const row = JSON.parse(JSON.stringify(result))
+                    return resolve(row)
+                })
+            })
         }
 }
 
 export default new SelecaoRepository()
-
