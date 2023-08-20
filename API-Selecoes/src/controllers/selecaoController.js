@@ -1,7 +1,7 @@
 import SelecaoRepository from '../Repositories/SelecaoRepository.js'
 
 class SelecaoController{
-    
+
     async index (req, res){
        const row = await SelecaoRepository.findAll()
        res.json(row)
@@ -14,7 +14,8 @@ class SelecaoController{
     } 
     
     async store(req, res){
-       const row = await SelecaoRepository.create
+       const row = await SelecaoRepository.create(req.body)
+       res.json(row)
     }
 
     async update(req, res){
