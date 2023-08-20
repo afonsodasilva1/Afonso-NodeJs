@@ -2,8 +2,16 @@ import conection from '../models/conexao.js'
 
 class SelecaoRepository{
 
-        create(){
-            //Bem famosa
+        create(bodyReq){
+            const sqlComand = 'INSERT INTO selecao SET ?;'
+            return new Promise((resolve, reject) =>{
+                conection.query(sqlComand, bodyReq, (err, result) =>{
+                    if(err)
+                        return reject('Não foi possível cadastrar!')
+                    const row = JSON.parse(JSON.stringify(result))
+                    return resolve(row)
+                })
+            })
         }
 
         findAll(){
