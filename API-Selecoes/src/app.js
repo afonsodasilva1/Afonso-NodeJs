@@ -3,12 +3,13 @@ import SelecaoController from './controllers/SelecaoController.js'
 
 const app = express()
 app.use(express.json())
+
 //Rotas
+app.post('/createSelecao', SelecaoController.store)
+
 app.get('/showSelecoes', SelecaoController.index) 
 
 app.get('/showSelecao/:id', SelecaoController.show)
-
-app.post('/createSelecao', SelecaoController.store)
 
 app.put('/updateSelecao/:id', SelecaoController.update)
 

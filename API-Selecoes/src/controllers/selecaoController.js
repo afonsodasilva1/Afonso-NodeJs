@@ -2,14 +2,13 @@ import SelecaoRepository from '../Repositories/SelecaoRepository.js'
 
 class SelecaoController{
 
-    async index (req, res){
+    async index (_, res){
        const row = await SelecaoRepository.findAll()
        res.json(row)
     }
     
     async show(req, res){
-        const id = req.params.id
-        const row = await SelecaoRepository.findById(id)
+        const row = await SelecaoRepository.findById(req.params.id)
         res.json(row)
     } 
     
