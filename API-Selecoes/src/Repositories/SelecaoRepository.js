@@ -29,7 +29,15 @@ class SelecaoRepository{
         }
 
         update(id, bodyReq){
-            const sqlComand = 'UPDATE selecao SET ? WHERE id'
+            const sqlComand = 'UPDATE selecao SET ? WHERE id = ?;'
+            return new Promise((resolve, reject) =>{
+                conection.query(sqlComand, [bodyReq, id], (erro, result) =>{
+                    if(erro)
+                        return reject('Não foi possível actualizar!')
+                    const row = JSON.parse(JSON.stringify(result))
+                    return resolve(row)
+                })
+            })
         }
 
         delete(){
